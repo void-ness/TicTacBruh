@@ -1,0 +1,82 @@
+/* importing required fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling Color Changer Button */
+
+#ColorChanger{
+    position: absolute;
+    width: fit-content;
+    font-size: smaller;
+    zoom: 0.8;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Styling Game Title */
+
+.GameName{
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+
+/* Styling for the Game Box */
+
+.GameContainer{
+    display: grid;
+    grid-template-columns: repeat(3 , 10vw);
+    grid-template-rows: repeat(3 , 10vw);
+    position: relative;
+}
+
+/* Styling the line that appears on winning */
+
+.WinLine{
+    height: 0.3em;
+    width: 0;
+    background: #000;
+    position: absolute;
+    /* transform: translate(10%,5vw) rotate(90deg) ; */
+}
+
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for each box of the Grid */
+
+.Box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 4em;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+
+/* Styling for Game information bar */
+
+.GameInfo{
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    margin-top: 1em;
+}
+
+.TurnInfo{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.7vw;
+}
