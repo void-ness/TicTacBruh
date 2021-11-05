@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 /* Styling Color Changer Button */
 
 #ColorChanger{
@@ -21,12 +22,32 @@
     bottom: 0;
 }
 
+/* Styling Points Bar */
+
+.PointsBar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5em;
+    margin-top: 0.6em;
+}
+
+.Points{
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4em;
+}
+
+.TeamName{
+    font-weight: bold;
+    padding-right: 0.5em;
+}
+
 /* Styling Game Title */
 
 .GameName{
     text-align: center;
     margin-bottom: 1em;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 /* Styling for the Game Box */
@@ -41,11 +62,11 @@
 /* Styling the line that appears on winning */
 
 .WinLine{
-    height: 0.3em;
+    height: 0.15em;
     width: 0;
     background: #000;
     position: absolute;
-    /* transform: translate(10%,5vw) rotate(90deg) ; */
+    transition: width 0.3s ease-in;
 }
 
 .MainContainer{
@@ -71,7 +92,7 @@
 
 .GameInfo{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 30vw;
     margin-top: 1em;
 }
@@ -79,4 +100,55 @@
 .TurnInfo{
     font-family: 'Poppins', sans-serif;
     font-size: 1.7vw;
+    margin-top: 0.5em;
+    font-weight: bold;
+    /* animation: scale ease-in 2s 3; */
+    align-self: center;
+    opacity: 0.8;
+}
+
+@keyframes scale {
+    0%{
+        opacity: 0.6;
+    }
+
+    80%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0.8;
+    }
+}
+
+/* Styling surprise Win POP-UP */
+
+/* for Phone */
+.congratulate{
+    font-size: 6em;
+    text-align: center;
+    height: 0;
+    transition: height 0.6s ease-in;
+    overflow: hidden;
+}
+
+/* for Web */
+.WinPopUp{
+    position: absolute;
+    left: 1em;
+    bottom: 0;
+    height: 19em;
+    overflow: hidden;
+}
+
+.WinPopUpImg{
+    transform: translateY(19em);
+    transition: transform 0.4s ease-in;
+    height: 100%;
+}
+
+/* Styling Reset Button */
+
+#GameReset{
+    align-self: flex-end;
 }

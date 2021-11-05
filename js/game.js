@@ -4,26 +4,53 @@ let turn = "X";
 let GameOver = false;
 let ColorsList = [1,2,3,4,5,6,7,8,9,0,"A","B","C","D","E","F"];
 let Color="#";
+// screenSize matches atrribute will become true when the screen size matches
+let screenSize = window.matchMedia("(max-width: 450px)")
+
+let WinX = 0,WinO = 0;
+
 
 // Changing Turn
 function TurnChanger(){
     return turn==="X"? "O": "X"  
 }
 
-//winning Logic
+// Win Pop Up Sequence basically a media query in js
+function CheckScreen(x) {
+    if (x.matches) { 
+        document.querySelector(".congratulate").style.height = "1.2em";        
+    }
+    
+    else {
+        document.querySelector(".WinPopUpImg").style.transform = "translateY(0)";
+    }
+  }
 
-// complete this function
+//winning Logic
 function Winyet(){
     let win = [ [0,1,2,5,5,0] , [3,4,5,5,15,0] , [6,7,8,5,25,0] , [0,3,6,-5,15,90] , [1,4,7,5,15,90] , [2,5,8,15,15,90] , [0,4,8,5,15,45] , [2,4,6,5,15,135] ];
 
     win.forEach( (WinComb) => {
         if (Gamebox[WinComb[0]].innerText === Gamebox[WinComb[1]].innerText & Gamebox[WinComb[0]].innerText === Gamebox[WinComb[2]].innerText && Gamebox[WinComb[0]].innerText != "" ){
             GameOver = true;
+            PointsCalc(Gamebox[WinComb[0]].innerText);
             document.getElementsByClassName("WinLine")[0].style.width = "20vw";
             document.getElementsByClassName("WinLine")[0].style.transform = `translate(${WinComb[3]}vw , ${WinComb[4]}vw) rotate(${WinComb[5]}deg) scaleX(1.3)`;
             return 0;
         }
     })
+}
+
+// pointer logic
+// WinX keeps record of Wins for X, similarly WinO is for recording wins for O
+function PointsCalc(turn){
+    if (turn == "X"){
+        WinX += 1;
+    }
+
+    else if (turn == "O"){
+        WinO += 1;
+    }
 }
 
 // main logic
@@ -33,8 +60,12 @@ Array.from(Gamebox).forEach( (box) => {
         if (text.innerText === ""){
             text.innerText = turn;
             Winyet();
+
             if (GameOver & turn != ""){
                 document.querySelector(".TurnInfo").innerText = `Congratulations ${turn} Won! yayy`;
+                CheckScreen(screenSize);
+                document.querySelector(".PointsX").innerText = WinX;
+                document.querySelector(".PointsO").innerText = WinO;
                 turn = ""
             }
 
@@ -62,6 +93,9 @@ document.getElementById("GameReset").addEventListener("click", function(){
     //works like a button to reset color too as I prefer white bg only
     document.getElementsByTagName("body")[0].style.background = "white";
 
+    // Resets the Win Pop Ups
+    document.querySelector(".WinPopUpImg").style.transform = "translateY(19em)";
+    document.querySelector(".congratulate").style.height = "0";        
 })
 
 // color changer logic
