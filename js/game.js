@@ -121,7 +121,7 @@ document.getElementById("GameReset").addEventListener("click", function(){
     // as games begin with turn for X first
     turn = "X";
     GameOver = false;
-    document.querySelector(".TurnInfo").innerText = "Heyy, did you won? nah";
+    document.querySelector(".TurnInfo").innerText = "Heyy, did you win? nah";
 
     //hiding the line that appears after winning
     document.getElementsByClassName("WinLine")[0].style.width = "0";
