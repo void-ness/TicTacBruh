@@ -105,6 +105,7 @@
     /* animation: scale ease-in 2s 3; */
     align-self: center;
     opacity: 0.8;
+    text-align: center;
 }
 
 @keyframes scale {
