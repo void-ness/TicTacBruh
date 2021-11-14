@@ -23,7 +23,7 @@ function CheckScreen(x) {
     }
     
     else {
-        document.querySelector(".WinPopUpImg").style.transform = "translateY(0)";
+        // document.querySelector(".WinPopUpImg").style.transform = "translateY(0)";
     }
   }
 
